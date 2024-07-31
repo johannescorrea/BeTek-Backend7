@@ -1,6 +1,6 @@
 package com.betek.backend7.sesion4.ejercicio2;
 
-public class PaypalProcessor extends PaymentProcessor{
+public class PaypalProcessor extends BasePaymentProcessor {
     @Override
     protected void autenticarUsuario() {
         System.out.println("Autenticando Paypal.");
@@ -15,4 +15,6 @@ public class PaypalProcessor extends PaymentProcessor{
     protected boolean validarTranssacion(double valorPago) {
         return valorPago > 5000;
     }
+
+
 }
