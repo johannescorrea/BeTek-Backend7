@@ -22,4 +22,9 @@ public class PaymentService {
             System.err.println(e.getMessage());
         }
     }
+
+    //Limite inferior de 100 es para pagos con payoal
+    //Limite superior de 50000 es para pagos con transferencias bancarias
+    //y el sobrecargo es con tarjeta de credito.
+
 }
