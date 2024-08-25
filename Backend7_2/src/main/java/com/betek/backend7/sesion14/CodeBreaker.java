@@ -38,8 +38,8 @@ public class CodeBreaker {
                         }
                     }
                 }
-                resultado += ".".repeat(puntos);
-                resultado += "+".repeat(cruces);
+                //resultado += ".".repeat(puntos);
+                //resultado += "+".repeat(cruces);
             }
         }
         return resultado;

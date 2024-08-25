@@ -26,6 +26,7 @@ class CodeBreakerTest {
     @Test
     void intentarNumero_debeFallarSiValorEsMenor4Digitos() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> codeBreaker.intentarNumero("123"));
+
     }
 
     @Test
