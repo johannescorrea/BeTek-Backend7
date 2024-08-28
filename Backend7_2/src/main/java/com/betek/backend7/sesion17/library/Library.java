@@ -93,24 +93,15 @@ public class Library {
 
     // Sort books by price
     public List<Book> sortBooksByPrice() {
-        List<Book> sortedBooks = new ArrayList<>(books);
-        sortedBooks.sort(new Comparator<Book>() {
-            @Override
-            public int compare(Book b1, Book b2) {
-                return Double.compare(b1.getPrice(), b2.getPrice());
-            }
-        });
-        return sortedBooks;
+        return books.stream()
+                .sorted(Comparator.comparing(Book::getPrice)).toList();
     }
 
     // Short-circuit operation: find any book by genre
-    public Book findAnyBookByGenre(String genre) {
-        for (Book book : books) {
-            if (book.getGenre().equalsIgnoreCase(genre)) {
-                return book;
-            }
-        }
-        return null;
+    public Optional<Book> findAnyBookByGenre(String genre) {
+        return books.stream()
+                .filter(book -> book.getGenre().equalsIgnoreCase(genre))
+                .findAny();
     }
 
     // Group books by genre

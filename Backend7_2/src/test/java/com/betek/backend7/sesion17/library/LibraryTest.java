@@ -5,11 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Optional;
 
 public class LibraryTest {
     private Library library;
@@ -103,9 +101,9 @@ public class LibraryTest {
 
     @Test
     public void testFindAnyBookByGenre() {
-        Book anyFiction = library.findAnyBookByGenre("Fiction");
-        assertNotNull(anyFiction);
-        assertTrue(anyFiction.getGenre().equalsIgnoreCase("Fiction"));
+        Optional<Book> anyFiction = library.findAnyBookByGenre("Fiction");
+        assertTrue(anyFiction.isPresent());
+        assertTrue(anyFiction.get().getGenre().equalsIgnoreCase("Fiction"));
     }
 
     @Test
