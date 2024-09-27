@@ -1,6 +1,7 @@
 package com.betek.backend7.matriculas_jpa.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -15,6 +16,8 @@ import lombok.Setter;
 
 import java.util.List;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,7 +27,7 @@ import java.util.List;
 public class Profesor {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.SEQUENCE, generator = "profesor_seq")
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "IDPROFESOR")
     private Integer idProfesor;
 
@@ -38,5 +41,6 @@ public class Profesor {
     private String especialidad;
 
     @OneToMany(mappedBy = "profesor", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Curso> cursos;
 }
